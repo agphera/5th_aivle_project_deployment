@@ -1,3 +1,10 @@
+export async function generateStaticParams() {
+  // 실습용 //1~10번 책 페이지를 정적으로 생성
+  return Array.from({ length: 10 }, (_, i) => ({
+    bookid: String(i + 1),
+  }));
+}
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -37,6 +44,9 @@ export default function BookDetailPage() {
     useEffect(() => {
         if (!bookid) return;
 
+        //빌드 타임에서는 실행되지 않도록 보호
+        if (typeof window === "undefined") return;
+        
         const fetchDetail = async () => {
             setLoading(true);
             try {
