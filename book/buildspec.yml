@@ -1,0 +1,21 @@
+version: 0.1
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo "Move to frontend directory"
+      - cd frontend
+      - echo "Install dependencies"
+      - npm install
+
+  build:
+    commands:
+      - echo "Build Next.js project (static export)"
+      - npm run build
+
+artifacts:
+  base-directory: frontend/out
+  files:
+    - '**/*'
