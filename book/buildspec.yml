@@ -6,7 +6,7 @@ phases:
       nodejs: 18
     commands:
       - echo "Move to frontend directory"
-      - cd frontend
+      - cd book/frontend
       - npm install
 
   build:
@@ -15,6 +15,6 @@ phases:
       - npm run build
 
 artifacts:
-  base-directory: frontend/out
+  base-directory: book/frontend/out
   files:
     - '**/*'
